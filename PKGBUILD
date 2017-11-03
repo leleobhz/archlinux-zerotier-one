@@ -2,7 +2,7 @@
 # Contributor: Alex Jordan <alexander3223098@gmail.com>
 pkgname=zerotier-one
 pkgver=1.2.4
-pkgrel=1
+pkgrel=2
 pkgdesc="Creates virtual Ethernet networks of almost unlimited size."
 arch=('i686' 'x86_64' 'armv7h' 'aarch64')
 url="https://www.zerotier.com/index.html"
