@@ -4,17 +4,18 @@ pkgname=zerotier-one
 pkgver=1.2.4
 pkgrel=1
 pkgdesc="Creates virtual Ethernet networks of almost unlimited size."
-arch=('i686' 'x86_64' 'armv7h')
+arch=('i686' 'x86_64' 'armv7h' 'aarch64')
 url="https://www.zerotier.com/index.html"
 license=('GPL3')
 groups=()
-depends=("gcc-libs" "http-parser")
-makedepends=("ruby-ronn")
+depends=("gcc-libs" "miniupnpc" "libnatpmp" "http-parser")
+makedepends=("ruby-ronn" "clang" "miniupnpc" "libnatpmp")
 source=("${pkgname}-${pkgver}::https://github.com/zerotier/ZeroTierOne/archive/$pkgver.tar.gz")
 sha512sums=('82adb110208d24ae2745e3839810afcac87955de050ebfe0517a7dc2a875881dafd40c1b16a041742d8c4d0f6513abcc71d6ea3e06c2fb89b47be2630a500363')
 
 build() {
   cd "$srcdir/ZeroTierOne-$pkgver"
+  patch -p1 < $startdir/miniupnpc-system.patch
   make
 }
 
